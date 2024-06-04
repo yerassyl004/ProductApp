@@ -20,12 +20,17 @@ final class ProductViewController: UIViewController {
     var productData = [Product.ViewModel]()
     
     // MARK: - UI
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.registerCell(ProductTableViewCell.self)
-        tableView.dataSource = self
-        tableView.delegate = self
-        return tableView
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 10.0
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.registerCell(ProductCollectionViewCell.self)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+        return collectionView
     }()
     
     // MARK: - View lifecycle
@@ -35,18 +40,23 @@ final class ProductViewController: UIViewController {
         setupConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor?.getProductData()
+    }
+    
     // MARK: - Setup Views
     private func setupViews() {
         ProductConfigurator.shared.configure(viewController: self)
-        view.backgroundColor = .systemGray6
-        interactor?.getProductData()
-        view.addSubview(tableView)
+        view.backgroundColor = .systemBackground
+        view.addSubview(collectionView)
     }
     
     // MARK: - Setup Constraints
     private func setupConstraints() {
-        tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        collectionView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(16)
         }
     }
 }
@@ -54,7 +64,6 @@ final class ProductViewController: UIViewController {
 extension ProductViewController: ProductDisplayLogic {
     func displayProductData(viewModel: [Product.ViewModel]) {
         productData = viewModel
-        tableView.reloadData()
+        collectionView.reloadData()
     }
 }
-

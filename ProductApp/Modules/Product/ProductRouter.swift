@@ -12,16 +12,24 @@
 
 import UIKit
 
-@objc protocol ProductRoutingLogic {
-    
+protocol ProductRoutingLogic {
+    func pushToDetail(productData: Product.ViewModel)
 }
 
 protocol ProductDataPassing {
-    var dataStore: ProductDataStore? { get }
+    var dataStore: ProductDataStore? { get set }
 }
 
-class ProductRouter: NSObject, ProductRoutingLogic, ProductDataPassing {
+final class ProductRouter: NSObject, ProductRoutingLogic, ProductDataPassing {
     weak var viewController: ProductViewController?
     var dataStore: ProductDataStore?
     
+    func pushToDetail(productData: Product.ViewModel) {
+        let vc = DetailsViewController(productData: productData)
+        
+        print("pushed")
+        vc.router?.dataStore?.productData = dataStore?.productDetail
+        vc.delegate?.getDetails()
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
 }

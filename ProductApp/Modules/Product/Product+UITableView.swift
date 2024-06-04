@@ -7,17 +7,28 @@
 
 import UIKit
 
-extension ProductViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ProductViewController: UICollectionViewDataSource, UICollectionViewDelegate,
+                                    UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productData.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ProductTableViewCell
-        let viewModel = productData[indexPath.row]
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as ProductCollectionViewCell
+        let viewModel = productData[indexPath.item]
         cell.configure(viewModel: viewModel)
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productData = productData[indexPath.item]
+        router?.dataStore?.productDetail = productData
+        router?.pushToDetail(productData: productData)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.bounds.width / 2) - 5
+        return CGSize(width: width, height: width + 80)
+    }
 }
 

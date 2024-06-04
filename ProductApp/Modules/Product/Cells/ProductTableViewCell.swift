@@ -8,22 +8,32 @@
 import UIKit
 import SnapKit
 
-final class ProductTableViewCell: UITableViewCell {
+final class ProductCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.searchBarStyle = .minimal
+        return searchBar
+    }()
+    
     private lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
     private lazy var addToFavoritesImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.tintColor = .white
+        imageView.layer.shadowOpacity = 10
         return imageView
     }()
     
     private lazy var productTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16)
+        label.font = .systemFont(ofSize: 18)
         label.textColor = .black
         label.numberOfLines = 1
         return label
@@ -31,25 +41,41 @@ final class ProductTableViewCell: UITableViewCell {
     
     private lazy var productAmountLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 20, weight: .medium)
         label.textColor = .black
         label.numberOfLines = 1
         return label
     }()
     
     // MARK: - Life Cycle
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupViews()
         setupConstraints()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        DispatchQueue.main.async {
+            self.contentView.layer.cornerRadius = 16
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        productImageView.image = nil
+        productTitleLabel.text = nil
+        productAmountLabel.text = nil
+        addToFavoritesImageView.image = nil
     }
     
     // MARK: - Setup Views
     private func setupViews() {
+        contentView.backgroundColor = .systemGray6
         [productTitleLabel, productImageView, productAmountLabel, addToFavoritesImageView].forEach {
             contentView.addSubview($0)
         }
@@ -58,37 +84,42 @@ final class ProductTableViewCell: UITableViewCell {
     // MARK: - Setup Constraints
     private func setupConstraints() {
         productImageView.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().inset(8)
-            make.size.equalTo(150)
-            make.bottom.equalToSuperview().offset(-24)
+            make.top.equalToSuperview().offset(16)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(contentView.bounds.width - 16)
         }
         
         addToFavoritesImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(8)
-            make.trailing.equalToSuperview().offset(-8)
-            make.size.equalTo(16)
+            make.top.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(30)
         }
         
         productTitleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(8)
-            make.leading.equalTo(productImageView.snp.trailing).offset(16)
-            make.trailing.equalTo(addToFavoritesImageView.snp.leading).offset(-8)
+            make.top.equalTo(productImageView.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview().inset(8)
         }
         
         productAmountLabel.snp.makeConstraints { make in
             make.top.equalTo(productTitleLabel.snp.bottom).offset(8)
-            make.leading.equalTo(productImageView.snp.trailing).offset(16)
+            make.leading.trailing.equalToSuperview().inset(8)
         }
     }
     
     // MARK: - Configure
     public func configure(viewModel: Product.ViewModel) {
         productTitleLabel.text = viewModel.productTitle
-        productImageView.image = viewModel.productImage
+        productImageView.image = UIImage(named: viewModel.productImage)
         productAmountLabel.text = viewModel.productAmount
         
-        addToFavoritesImageView.image = viewModel.isAdded ?
-        UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+        switch viewModel.isAdded {
+        case true:
+            addToFavoritesImageView.image = UIImage(systemName: "heart.fill")
+            addToFavoritesImageView.tintColor = .red
+        case false:
+            addToFavoritesImageView.image = UIImage(systemName: "heart")
+            addToFavoritesImageView.tintColor = .white
+        }
     }
     
 }

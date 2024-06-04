@@ -16,11 +16,15 @@ protocol ProductBusinessLogic {
     func getProductData()
 }
 
-protocol ProductDataStore {}
+protocol ProductDataStore {
+    var productDetail: Product.ViewModel? { get set }
+}
 
 final class ProductInteractor: ProductDataStore {
+    var productDetail: Product.ViewModel?
     var presenter: ProductPresentationLogic?
     var worker: ProductWorkerProtocol?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     init(worker: ProductWorkerProtocol, presenter: ProductPresentationLogic) {
         self.worker = worker
@@ -31,7 +35,6 @@ final class ProductInteractor: ProductDataStore {
 extension ProductInteractor: ProductBusinessLogic {
     func getProductData() {
         worker?.fetchProductData { [weak self] productData in
-            print(productData)
             self?.presenter?.presentProductData(model: productData)
         }
     }

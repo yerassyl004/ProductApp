@@ -31,7 +31,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         self.delegate = self
         
-        let mainViewController = ProductViewController()
+        let productVC = ProductViewController()
+        let mainViewController = UINavigationController(rootViewController: productVC)
         let tabOneBarItem = UITabBarItem(title: "Продкты",
                                          image: UIImage(systemName: "cart"),
                                          selectedImage: UIImage(systemName: "cart.fill"))

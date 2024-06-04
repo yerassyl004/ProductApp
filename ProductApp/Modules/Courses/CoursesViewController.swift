@@ -22,6 +22,15 @@ final class CoursesViewController: UIViewController {
     var interactor: CoursesBusinessLogic?
     var router: (NSObjectProtocol & CoursesRoutingLogic & CoursesDataPassing)?
     
+    // MARK: - UI
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.registerCell(CoursesTableViewCell.self)
+        tableView.dataSource = self
+        tableView.delegate = self
+        return tableView
+    }()
+    
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
