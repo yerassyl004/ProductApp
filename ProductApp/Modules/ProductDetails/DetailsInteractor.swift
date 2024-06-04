@@ -11,9 +11,12 @@
 //
 
 import UIKit
+import CoreData
 
 protocol DetailsBusinessLogic {
     func getProductData(productData: Product.ViewModel)
+    func addFavoriteProduct(productData: Product.ViewModel)
+    func deleteFavoriteProduct(productTitle: String)
 }
 
 protocol DetailsDataStore {
@@ -25,9 +28,43 @@ final class DetailsInteractor: DetailsDataStore {
     var productData: Product.ViewModel?
     var presenter: DetailsPresentationLogic?
     var worker: DetailsWorker?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 }
 
 extension DetailsInteractor: DetailsBusinessLogic {
+    func addFavoriteProduct(productData: Product.ViewModel) {
+        let newProduct = ProductFavorites(context: context)
+        newProduct.productTitle = productData.productTitle
+        newProduct.productImageName = productData.productImage
+        newProduct.productAmount = productData.productAmount
+        newProduct.isAdded = productData.isAdded
+        
+        do {
+            try context.save()
+            print("Product added to favorites successfully.")
+        } catch let error {
+            print("Failed to add product to favorites with error: \(error)")
+        }
+    }
+    
+    func deleteFavoriteProduct(productTitle: String) {
+        let fetchRequest: NSFetchRequest<ProductFavorites> = ProductFavorites.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "productTitle == %@", productTitle)
+        
+        do {
+            let products = try context.fetch(fetchRequest)
+            if let productToDelete = products.first {
+                context.delete(productToDelete)
+                try context.save()
+                print("Product deleted successfully.")
+            } else {
+                print("Product not found.")
+            }
+        } catch let error {
+            print("Failed to delete product with error: \(error)")
+        }
+    }
+    
     func getProductData(productData: Product.ViewModel) {
         
     }

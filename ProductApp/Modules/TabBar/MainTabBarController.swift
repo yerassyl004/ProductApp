@@ -33,21 +33,29 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         let productVC = ProductViewController()
         let mainViewController = UINavigationController(rootViewController: productVC)
-        let tabOneBarItem = UITabBarItem(title: "Продкты",
+        let tabOneBarItem = UITabBarItem(title: "Продукты",
                                          image: UIImage(systemName: "cart"),
                                          selectedImage: UIImage(systemName: "cart.fill"))
         
         mainViewController.tabBarItem = tabOneBarItem
         
+        let favoritesVC = FavoritesViewController()
+        let favVC = UINavigationController(rootViewController: favoritesVC)
+        let tabTwoBarItem2 = UITabBarItem(title: "Избранные",
+                                          image: UIImage(systemName: "heart"),
+                                          selectedImage: UIImage(systemName: "heart.fill"))
+        favVC.tabBarItem = tabTwoBarItem2
+        
         let ordersController = CoursesViewController()
-        let tabTwoBarItem2 = UITabBarItem(title: "Курсы",
+        let tabThreeBarItem3 = UITabBarItem(title: "Курсы",
                                           image: UIImage(systemName: "lightbulb.circle"),
                                           selectedImage: UIImage(systemName: "lightbulb.circle.fill"))
         
-        ordersController.tabBarItem = tabTwoBarItem2
+        ordersController.tabBarItem = tabThreeBarItem3
 
         self.viewControllers = [
             mainViewController,
+            favVC,
             ordersController
         ]
     }

@@ -6,4 +6,10 @@
         <attribute name="productImageName" optional="YES" attributeType="String"/>
         <attribute name="productTitle" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="ProductFavorites" representedClassName="ProductFavorites" syncable="YES">
+        <attribute name="isAdded" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="productAmount" optional="YES" attributeType="String"/>
+        <attribute name="productImageName" optional="YES" attributeType="String"/>
+        <attribute name="productTitle" optional="YES" attributeType="String"/>
+    </entity>
 </model>

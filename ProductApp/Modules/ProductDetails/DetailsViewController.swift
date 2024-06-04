@@ -72,6 +72,15 @@ final class DetailsViewController: UIViewController {
         return label
     }()
     
+    private lazy var buyProductButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Купить", for: .normal)
+        button.backgroundColor = .systemGreen
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(buyProductButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,11 +93,16 @@ final class DetailsViewController: UIViewController {
         updateFavoriteButtonState()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        buyProductButton.layer.cornerRadius = buyProductButton.bounds.height/2
+    }
+    
     // MARK: - Setup Views
     private func setupViews() {
         DetailsConfigurator.shared.configure(viewController: self)
         view.backgroundColor = .systemBackground
-        [productImageView, productTitleLabel, productAmount, addToFavoritesButton].forEach {
+        [productImageView, productTitleLabel, productAmount, addToFavoritesButton, buyProductButton].forEach {
             view.addSubview($0)
         }
     }
@@ -116,13 +130,24 @@ final class DetailsViewController: UIViewController {
             make.top.equalTo(productTitleLabel.snp.bottom).offset(8)
             make.leading.trailing.equalToSuperview().inset(16)
         }
+        
+        buyProductButton.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(24)
+            make.height.equalTo(48)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-8)
+        }
     }
     
     // MARK: - Actions
     @objc private func addToFavoritesButtonTapped() {
         productData.isAdded.toggle()
+        interactor?.addFavoriteProduct(productData: productData)
         updateFavoriteButtonState()
         saveChangesToCoreData()
+    }
+    
+    @objc private func buyProductButtonTapped() {
+        router?.presentBuyProduct()
     }
     
     private func updateFavoriteButtonState() {
@@ -131,7 +156,8 @@ final class DetailsViewController: UIViewController {
     }
     
     private func saveChangesToCoreData() {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        guard let context else { return }
         let fetchRequest: NSFetchRequest<ProductData> = ProductData.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "productTitle == %@", productData.productTitle)
         

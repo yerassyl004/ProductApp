@@ -11,9 +11,10 @@
 //
 
 import UIKit
+import PanModal
 
 @objc protocol DetailsRoutingLogic {
-    
+    func presentBuyProduct()
 }
 
 protocol DetailsDataPassing {
@@ -23,5 +24,10 @@ protocol DetailsDataPassing {
 final class DetailsRouter: NSObject, DetailsRoutingLogic, DetailsDataPassing {
     weak var viewController: DetailsViewController?
     var dataStore: DetailsDataStore?
+    
+    func presentBuyProduct() {
+        let vc = BuyProductViewController()
+        viewController?.presentPanModal(vc)
+    }
     
 }

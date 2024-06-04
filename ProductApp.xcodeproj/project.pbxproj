@@ -33,8 +33,23 @@
 		0E9435182C0E46B800EB31D6 /* Product+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9435172C0E46B800EB31D6 /* Product+UITableView.swift */; };
 		0E94351D2C0E479C00EB31D6 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94351C2C0E479C00EB31D6 /* UITableView+Register.swift */; };
 		0E94351F2C0E47CE00EB31D6 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94351E2C0E47CE00EB31D6 /* UITableView+Reusable.swift */; };
+		0EA400002C0F44360092098B /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4FFF92C0F44360092098B /* FavoritesRouter.swift */; };
+		0EA400012C0F44360092098B /* FavoritesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4FFFA2C0F44360092098B /* FavoritesModels.swift */; };
+		0EA400022C0F44360092098B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4FFFB2C0F44360092098B /* FavoritesViewController.swift */; };
+		0EA400032C0F44360092098B /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4FFFC2C0F44360092098B /* FavoritesInteractor.swift */; };
+		0EA400042C0F44360092098B /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4FFFD2C0F44360092098B /* FavoritesConfigurator.swift */; };
+		0EA400072C0F49950092098B /* ProductFavorites+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA400052C0F49950092098B /* ProductFavorites+CoreDataClass.swift */; };
+		0EA400082C0F49950092098B /* ProductFavorites+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA400062C0F49950092098B /* ProductFavorites+CoreDataProperties.swift */; };
+		0EA4000C2C0F6E880092098B /* BuyProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4000B2C0F6E880092098B /* BuyProductViewController.swift */; };
+		0EA4000F2C0F6E9E0092098B /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 0EA4000E2C0F6E9E0092098B /* PanModal */; };
+		0EA400122C0F8F330092098B /* SkyFloatingLabelTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 0EA400112C0F8F330092098B /* SkyFloatingLabelTextField */; };
+		0EA400152C0F910D0092098B /* InputMask in Frameworks */ = {isa = PBXBuildFile; productRef = 0EA400142C0F910D0092098B /* InputMask */; };
+		0EA400172C0F95BC0092098B /* CustomSkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA400162C0F95BC0092098B /* CustomSkyFloatingLabelTextField.swift */; };
+		0EA400192C0F9F9D0092098B /* Favorites+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA400182C0F9F9D0092098B /* Favorites+TableView.swift */; };
 		0EA4FFF52C0F33C30092098B /* ProductData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4FFF32C0F33C30092098B /* ProductData+CoreDataClass.swift */; };
 		0EA4FFF62C0F33C30092098B /* ProductData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4FFF42C0F33C30092098B /* ProductData+CoreDataProperties.swift */; };
+		0EA4FFFE2C0F44360092098B /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4FFF72C0F44360092098B /* FavoritesPresenter.swift */; };
+		0EA4FFFF2C0F44360092098B /* FavoritesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4FFF82C0F44360092098B /* FavoritesWorker.swift */; };
 		0EBB67F12C0EFD6F00653A34 /* UICollectionView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB67F02C0EFD6F00653A34 /* UICollectionView+Register.swift */; };
 		0EBB67F32C0EFD8000653A34 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB67F22C0EFD8000653A34 /* UICollectionView+Reusable.swift */; };
 		0EBB67FC2C0F00F000653A34 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB67F52C0F00F000653A34 /* DetailsPresenter.swift */; };
@@ -75,8 +90,20 @@
 		0E9435172C0E46B800EB31D6 /* Product+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+UITableView.swift"; sourceTree = "<group>"; };
 		0E94351C2C0E479C00EB31D6 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		0E94351E2C0E47CE00EB31D6 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
+		0EA400052C0F49950092098B /* ProductFavorites+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductFavorites+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0EA400062C0F49950092098B /* ProductFavorites+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductFavorites+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0EA4000B2C0F6E880092098B /* BuyProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyProductViewController.swift; sourceTree = "<group>"; };
+		0EA400162C0F95BC0092098B /* CustomSkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		0EA400182C0F9F9D0092098B /* Favorites+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorites+TableView.swift"; sourceTree = "<group>"; };
 		0EA4FFF32C0F33C30092098B /* ProductData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0EA4FFF42C0F33C30092098B /* ProductData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0EA4FFF72C0F44360092098B /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		0EA4FFF82C0F44360092098B /* FavoritesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesWorker.swift; sourceTree = "<group>"; };
+		0EA4FFF92C0F44360092098B /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		0EA4FFFA2C0F44360092098B /* FavoritesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModels.swift; sourceTree = "<group>"; };
+		0EA4FFFB2C0F44360092098B /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		0EA4FFFC2C0F44360092098B /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
+		0EA4FFFD2C0F44360092098B /* FavoritesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConfigurator.swift; sourceTree = "<group>"; };
 		0EBB67F02C0EFD6F00653A34 /* UICollectionView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Register.swift"; sourceTree = "<group>"; };
 		0EBB67F22C0EFD8000653A34 /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
 		0EBB67F52C0F00F000653A34 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
@@ -94,7 +121,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EA4000F2C0F6E9E0092098B /* PanModal in Frameworks */,
+				0EA400152C0F910D0092098B /* InputMask in Frameworks */,
 				0E9435162C0E440C00EB31D6 /* SnapKit in Frameworks */,
+				0EA400122C0F8F330092098B /* SkyFloatingLabelTextField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +134,8 @@
 		0E9434C62C0E3C9700EB31D6 = {
 			isa = PBXGroup;
 			children = (
+				0EA400052C0F49950092098B /* ProductFavorites+CoreDataClass.swift */,
+				0EA400062C0F49950092098B /* ProductFavorites+CoreDataProperties.swift */,
 				0EA4FFF32C0F33C30092098B /* ProductData+CoreDataClass.swift */,
 				0EA4FFF42C0F33C30092098B /* ProductData+CoreDataProperties.swift */,
 				0E9434D12C0E3C9700EB31D6 /* ProductApp */,
@@ -138,10 +170,12 @@
 		0E9434E92C0E3D7B00EB31D6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0EA4000A2C0F6E530092098B /* BuyProduct */,
 				0EBB67F42C0F00D900653A34 /* ProductDetails */,
 				0E9434F22C0E3F7800EB31D6 /* Courses */,
 				0E9434F12C0E3F6E00EB31D6 /* Product */,
 				0E9434EC2C0E3E0200EB31D6 /* TabBar */,
+				0EA400092C0F4AA10092098B /* Favorites */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -232,8 +266,32 @@
 				0E94351E2C0E47CE00EB31D6 /* UITableView+Reusable.swift */,
 				0EBB67F02C0EFD6F00653A34 /* UICollectionView+Register.swift */,
 				0EBB67F22C0EFD8000653A34 /* UICollectionView+Reusable.swift */,
+				0EA400162C0F95BC0092098B /* CustomSkyFloatingLabelTextField.swift */,
 			);
 			path = "UIKit+Extensions";
+			sourceTree = "<group>";
+		};
+		0EA400092C0F4AA10092098B /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				0EA4FFF72C0F44360092098B /* FavoritesPresenter.swift */,
+				0EA4FFF82C0F44360092098B /* FavoritesWorker.swift */,
+				0EA4FFF92C0F44360092098B /* FavoritesRouter.swift */,
+				0EA4FFFA2C0F44360092098B /* FavoritesModels.swift */,
+				0EA4FFFB2C0F44360092098B /* FavoritesViewController.swift */,
+				0EA4FFFC2C0F44360092098B /* FavoritesInteractor.swift */,
+				0EA4FFFD2C0F44360092098B /* FavoritesConfigurator.swift */,
+				0EA400182C0F9F9D0092098B /* Favorites+TableView.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		0EA4000A2C0F6E530092098B /* BuyProduct */ = {
+			isa = PBXGroup;
+			children = (
+				0EA4000B2C0F6E880092098B /* BuyProductViewController.swift */,
+			);
+			path = BuyProduct;
 			sourceTree = "<group>";
 		};
 		0EBB67F42C0F00D900653A34 /* ProductDetails */ = {
@@ -268,6 +326,9 @@
 			name = ProductApp;
 			packageProductDependencies = (
 				0E9435152C0E440C00EB31D6 /* SnapKit */,
+				0EA4000E2C0F6E9E0092098B /* PanModal */,
+				0EA400112C0F8F330092098B /* SkyFloatingLabelTextField */,
+				0EA400142C0F910D0092098B /* InputMask */,
 			);
 			productName = ProductApp;
 			productReference = 0E9434CF2C0E3C9700EB31D6 /* ProductApp.app */;
@@ -299,6 +360,9 @@
 			mainGroup = 0E9434C62C0E3C9700EB31D6;
 			packageReferences = (
 				0E9435142C0E440C00EB31D6 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				0EA4000D2C0F6E9E0092098B /* XCRemoteSwiftPackageReference "PanModal" */,
+				0EA400102C0F8F330092098B /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */,
+				0EA400132C0F910D0092098B /* XCRemoteSwiftPackageReference "input-mask-ios" */,
 			);
 			productRefGroup = 0E9434D02C0E3C9700EB31D6 /* Products */;
 			projectDirPath = "";
@@ -328,6 +392,13 @@
 			files = (
 				0E9434F92C0E3FC700EB31D6 /* ProductPresenter.swift in Sources */,
 				0E9434FA2C0E3FC700EB31D6 /* ProductWorker.swift in Sources */,
+				0EA4FFFE2C0F44360092098B /* FavoritesPresenter.swift in Sources */,
+				0EA4FFFF2C0F44360092098B /* FavoritesWorker.swift in Sources */,
+				0EA400002C0F44360092098B /* FavoritesRouter.swift in Sources */,
+				0EA400012C0F44360092098B /* FavoritesModels.swift in Sources */,
+				0EA400022C0F44360092098B /* FavoritesViewController.swift in Sources */,
+				0EA400032C0F44360092098B /* FavoritesInteractor.swift in Sources */,
+				0EA400042C0F44360092098B /* FavoritesConfigurator.swift in Sources */,
 				0E9434FB2C0E3FC700EB31D6 /* ProductRouter.swift in Sources */,
 				0EBB67FC2C0F00F000653A34 /* DetailsPresenter.swift in Sources */,
 				0EBB67FD2C0F00F000653A34 /* DetailsWorker.swift in Sources */,
@@ -344,11 +415,15 @@
 				0E9434DD2C0E3C9700EB31D6 /* ProductApp.xcdatamodeld in Sources */,
 				0E9434EB2C0E3DC000EB31D6 /* MainTabBarController.swift in Sources */,
 				0E9434D32C0E3C9700EB31D6 /* AppDelegate.swift in Sources */,
+				0EA400172C0F95BC0092098B /* CustomSkyFloatingLabelTextField.swift in Sources */,
+				0EA4000C2C0F6E880092098B /* BuyProductViewController.swift in Sources */,
 				0E9434D52C0E3C9700EB31D6 /* SceneDelegate.swift in Sources */,
 				0E9435182C0E46B800EB31D6 /* Product+UITableView.swift in Sources */,
 				0E94351D2C0E479C00EB31D6 /* UITableView+Register.swift in Sources */,
 				0E9435062C0E3FF400EB31D6 /* CoursesPresenter.swift in Sources */,
 				0E9435072C0E3FF400EB31D6 /* CoursesWorker.swift in Sources */,
+				0EA400072C0F49950092098B /* ProductFavorites+CoreDataClass.swift in Sources */,
+				0EA400082C0F49950092098B /* ProductFavorites+CoreDataProperties.swift in Sources */,
 				0E9435082C0E3FF400EB31D6 /* CoursesRouter.swift in Sources */,
 				0EBB67F32C0EFD8000653A34 /* UICollectionView+Reusable.swift in Sources */,
 				0E94351F2C0E47CE00EB31D6 /* UITableView+Reusable.swift in Sources */,
@@ -356,6 +431,7 @@
 				0E9435102C0E43D000EB31D6 /* CoursesTableViewCell.swift in Sources */,
 				0EA4FFF52C0F33C30092098B /* ProductData+CoreDataClass.swift in Sources */,
 				0EA4FFF62C0F33C30092098B /* ProductData+CoreDataProperties.swift in Sources */,
+				0EA400192C0F9F9D0092098B /* Favorites+TableView.swift in Sources */,
 				0E94350A2C0E3FF400EB31D6 /* CoursesViewController.swift in Sources */,
 				0E9435132C0E43E100EB31D6 /* ProductTableViewCell.swift in Sources */,
 				0E94350B2C0E3FF400EB31D6 /* CoursesInteractor.swift in Sources */,
@@ -583,6 +659,30 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		0EA4000D2C0F6E9E0092098B /* XCRemoteSwiftPackageReference "PanModal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/slackhq/PanModal.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.7;
+			};
+		};
+		0EA400102C0F8F330092098B /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Skyscanner/SkyFloatingLabelTextField.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		0EA400132C0F910D0092098B /* XCRemoteSwiftPackageReference "input-mask-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RedMadRobot/input-mask-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.3.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -590,6 +690,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0E9435142C0E440C00EB31D6 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		0EA4000E2C0F6E9E0092098B /* PanModal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EA4000D2C0F6E9E0092098B /* XCRemoteSwiftPackageReference "PanModal" */;
+			productName = PanModal;
+		};
+		0EA400112C0F8F330092098B /* SkyFloatingLabelTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EA400102C0F8F330092098B /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */;
+			productName = SkyFloatingLabelTextField;
+		};
+		0EA400142C0F910D0092098B /* InputMask */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EA400132C0F910D0092098B /* XCRemoteSwiftPackageReference "input-mask-ios" */;
+			productName = InputMask;
 		};
 /* End XCSwiftPackageProductDependency section */
 
