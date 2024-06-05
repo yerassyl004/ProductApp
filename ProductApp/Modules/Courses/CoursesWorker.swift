@@ -12,6 +12,56 @@
 
 import UIKit
 
-class CoursesWorker {
+protocol CoursesWorkerProtocol {
+    func fetchCoursesData(completion: @escaping ([Courses.ViewModel]) -> Void)
+}
+
+class CoursesWorker: CoursesWorkerProtocol {
+    func fetchCoursesData(completion: @escaping ([Courses.ViewModel]) -> Void) {
+        completion(getCourses())
+    }
     
+    private func getCourses() -> [Courses.ViewModel] {
+        let courses = [
+            Courses.ViewModel(title: "Introduction to Programming",
+                              instructor: "John Doe",
+                              duration: "6 weeks",
+                              image: "swift-log",
+                              amount: "4990",
+                              description: """
+                                  This course provides a comprehensive introduction to programming concepts and techniques.
+                                  Students will learn about variables, data types, control structures, and functions,
+                                  and will gain practical experience with programming exercises and projects.
+                                  By the end of the course, students will have a solid foundation in programming and problem-solving skills.
+                                  """),
+            
+            Courses.ViewModel(title: "Machine Learning Basics",
+                              instructor: "Jane Smith",
+                              duration: "8 weeks",
+                              image: "swift-log",
+                              amount: "7990",
+                              description: """
+                                  Explore the fundamentals of machine learning in this in-depth course.
+                                  Topics covered include supervised and unsupervised learning,
+                                  regression, classification, and clustering algorithms,
+                                  and practical applications in real-world scenarios.
+                                  Students will also gain hands-on experience with popular machine learning libraries.
+                                  """),
+            
+            Courses.ViewModel(title: "iOS Development Fundamentals",
+                              instructor: "Alice Johnson",
+                              duration: "10 weeks",
+                              image: "swift-log",
+                              amount: "2990",
+                              description: """
+                                  Dive into the world of iOS app development with this comprehensive course.
+                                  Students will learn Swift programming language fundamentals,
+                                  user interface design principles, navigation patterns,
+                                  and data management techniques using Core Data and networking.
+                                  By the end of the course, students will have built several iOS apps from scratch.
+                                  """)
+        ]
+        
+        return courses
+    }
 }

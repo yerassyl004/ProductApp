@@ -17,9 +17,10 @@ class CoursesConfigurator {
     static let shared = CoursesConfigurator()
     
     func configure(viewController: CoursesViewController) {
-        let interactor = CoursesInteractor()
         let presenter = CoursesPresenter()
         let router = CoursesRouter()
+        let worker = CoursesWorker()
+        let interactor = CoursesInteractor(worker: worker, presenter: presenter)
         
         viewController.interactor = interactor
         viewController.router = router

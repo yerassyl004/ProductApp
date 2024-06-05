@@ -13,11 +13,13 @@
 import UIKit
 
 protocol CoursesPresentationLogic {
-    
+    func presentCoursesData(viewModel: [Courses.ViewModel])
 }
 
 final class CoursesPresenter: CoursesPresentationLogic {
     weak var viewController: CoursesDisplayLogic?
     
-    // MARK: Do something
+    func presentCoursesData(viewModel: [Courses.ViewModel]) {
+        viewController?.displayCoursesData(viewModel: viewModel)
+    }
 }

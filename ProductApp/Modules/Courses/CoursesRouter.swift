@@ -12,8 +12,8 @@
 
 import UIKit
 
-@objc protocol CoursesRoutingLogic {
-    
+protocol CoursesRoutingLogic {
+    func pushDetails(with courseData: Courses.ViewModel)
 }
 
 protocol CoursesDataPassing {
@@ -24,4 +24,9 @@ final class CoursesRouter: NSObject, CoursesRoutingLogic, CoursesDataPassing {
     weak var viewController: CoursesViewController?
     var dataStore: CoursesDataStore?
     
+    func pushDetails(with courseData: Courses.ViewModel) {
+        let vc = CourseDetailsViewController(courseData: courseData)
+        vc.hidesBottomBarWhenPushed = true
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
 }

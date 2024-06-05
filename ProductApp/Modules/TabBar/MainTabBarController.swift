@@ -46,17 +46,18 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                                           selectedImage: UIImage(systemName: "heart.fill"))
         favVC.tabBarItem = tabTwoBarItem2
         
-        let ordersController = CoursesViewController()
+        let coursesVC = CoursesViewController()
+        let coursesController = UINavigationController(rootViewController: coursesVC)
         let tabThreeBarItem3 = UITabBarItem(title: "Курсы",
                                           image: UIImage(systemName: "lightbulb.circle"),
                                           selectedImage: UIImage(systemName: "lightbulb.circle.fill"))
         
-        ordersController.tabBarItem = tabThreeBarItem3
+        coursesController.tabBarItem = tabThreeBarItem3
 
         self.viewControllers = [
             mainViewController,
             favVC,
-            ordersController
+            coursesController
         ]
     }
     

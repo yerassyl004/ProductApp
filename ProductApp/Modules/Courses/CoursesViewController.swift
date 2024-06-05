@@ -11,9 +11,10 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol CoursesDisplayLogic: AnyObject {
-    
+    func displayCoursesData(viewModel: [Courses.ViewModel])
 }
 
 final class CoursesViewController: UIViewController {
@@ -21,6 +22,7 @@ final class CoursesViewController: UIViewController {
     // MARK: - Deps
     var interactor: CoursesBusinessLogic?
     var router: (NSObjectProtocol & CoursesRoutingLogic & CoursesDataPassing)?
+    var coursesData = [Courses.ViewModel]()
     
     // MARK: - UI
     private lazy var tableView: UITableView = {
@@ -34,6 +36,7 @@ final class CoursesViewController: UIViewController {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigation()
         setupViews()
         setupConstraints()
     }
@@ -41,16 +44,30 @@ final class CoursesViewController: UIViewController {
     // MARK: - Setup Views
     private func setupViews() {
         CoursesConfigurator.shared.configure(viewController: self)
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = .systemBackground
+        view.addSubview(tableView)
+        
+        interactor?.getCoursesData()
     }
     
     // MARK: - Setup Constraints
     private func setupConstraints() {
-        
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    private func setupNavigation() {
+        navigationItem.title = "Курсы"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
     }
     
 }
 
 extension CoursesViewController: CoursesDisplayLogic {
-    
+    func displayCoursesData(viewModel: [Courses.ViewModel]) {
+        coursesData = viewModel
+        tableView.reloadData()
+    }
 }

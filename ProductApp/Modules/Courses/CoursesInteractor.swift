@@ -13,14 +13,25 @@
 import UIKit
 
 protocol CoursesBusinessLogic {
-    
+    func getCoursesData()
 }
 
 protocol CoursesDataStore {
-    
+    func getCoursesData()
 }
 
 final class CoursesInteractor: CoursesBusinessLogic, CoursesDataStore {
     var presenter: CoursesPresentationLogic?
-    var worker: CoursesWorker?
+    var worker: CoursesWorkerProtocol?
+    
+    init(worker: CoursesWorkerProtocol, presenter: CoursesPresentationLogic) {
+        self.worker = worker
+        self.presenter = presenter
+    }
+    
+    func getCoursesData() {
+        worker?.fetchCoursesData(completion: { courses in
+            self.presenter?.presentCoursesData(viewModel: courses)
+        })
+    }
 }

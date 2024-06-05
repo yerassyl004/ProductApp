@@ -74,7 +74,7 @@ final class ProductInfoView: UIView {
     public func configure(productData: Product.ViewModel) {
         productImageView.image = UIImage(named: productData.productImage)
         productTitleLabel.text = productData.productTitle
-        productAmountLabel.text = productData.productAmount
+        productAmountLabel.text = "\(productData.productAmount)₸"
     }
     
 }

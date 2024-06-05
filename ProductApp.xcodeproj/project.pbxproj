@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E074DB22C107059002592F1 /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E074DB12C107059002592F1 /* CourseDetailsViewController.swift */; };
 		0E41E6872C1025DE000265DC /* ProductInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E6862C1025DE000265DC /* ProductInfoView.swift */; };
 		0E41E68A2C10339D000265DC /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 0E41E6892C10339D000265DC /* ProgressHUD */; };
 		0E41E68D2C103850000265DC /* SuccessViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E68C2C103850000265DC /* SuccessViewViewController.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E074DB12C107059002592F1 /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
 		0E41E6862C1025DE000265DC /* ProductInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoView.swift; sourceTree = "<group>"; };
 		0E41E68C2C103850000265DC /* SuccessViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewViewController.swift; sourceTree = "<group>"; };
 		0E41E68F2C104230000265DC /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E074DB02C10703E002592F1 /* CourseDetails */ = {
+			isa = PBXGroup;
+			children = (
+				0E074DB12C107059002592F1 /* CourseDetailsViewController.swift */,
+			);
+			path = CourseDetails;
+			sourceTree = "<group>";
+		};
 		0E41E6852C1025C7000265DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +217,7 @@
 		0E9434E92C0E3D7B00EB31D6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0E074DB02C10703E002592F1 /* CourseDetails */,
 				0E41E68B2C1037CF000265DC /* SuucessOrder */,
 				0EA4000A2C0F6E530092098B /* BuyProduct */,
 				0EBB67F42C0F00D900653A34 /* ProductDetails */,
@@ -246,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				0E94350E2C0E43BF00EB31D6 /* Cells */,
-				0E94350D2C0E43B600EB31D6 /* Views */,
 				0E9434FF2C0E3FF400EB31D6 /* CoursesPresenter.swift */,
 				0E9435002C0E3FF400EB31D6 /* CoursesWorker.swift */,
 				0E9435012C0E3FF400EB31D6 /* CoursesRouter.swift */,
@@ -257,13 +267,6 @@
 				0EBB68052C0F304D00653A34 /* Courses+TableView.swift */,
 			);
 			path = Courses;
-			sourceTree = "<group>";
-		};
-		0E94350D2C0E43B600EB31D6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		0E94350E2C0E43BF00EB31D6 /* Cells */ = {
@@ -446,6 +449,7 @@
 				0E9434F92C0E3FC700EB31D6 /* ProductPresenter.swift in Sources */,
 				0E9434FA2C0E3FC700EB31D6 /* ProductWorker.swift in Sources */,
 				0EA4FFFE2C0F44360092098B /* FavoritesPresenter.swift in Sources */,
+				0E074DB22C107059002592F1 /* CourseDetailsViewController.swift in Sources */,
 				0EA4FFFF2C0F44360092098B /* FavoritesWorker.swift in Sources */,
 				0EA400002C0F44360092098B /* FavoritesRouter.swift in Sources */,
 				0EA400012C0F44360092098B /* FavoritesModels.swift in Sources */,

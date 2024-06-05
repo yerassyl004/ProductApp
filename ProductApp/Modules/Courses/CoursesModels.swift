@@ -19,6 +19,12 @@ enum Courses {
     struct Response {
     }
     struct ViewModel {
+        let title: String
+        let instructor: String
+        let duration: String
+        let image: String
+        let amount: String
+        let description: String
     }
     
 }

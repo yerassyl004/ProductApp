@@ -76,8 +76,9 @@ final class BuyProductViewController: UIViewController {
         textField.selectedLineHeight = 0
         
         let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 48))
-        let iconImageView = UIImageView(image: UIImage(systemName: "creditcard"))
+        let iconImageView = UIImageView(image: UIImage(systemName: "creditcard.fill"))
         iconImageView.tintColor = .lightGray
+        iconImageView.contentMode = .scaleAspectFit
         iconImageView.frame = CGRect(x: 0, y: 0, width: 30, height: 20)
         rightView.addSubview(iconImageView)
         iconImageView.center = rightView.center
@@ -100,8 +101,9 @@ final class BuyProductViewController: UIViewController {
         textField.selectedLineHeight = 0
         
         let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 48))
-        let iconImageView = UIImageView(image: UIImage(systemName: "creditcard"))
+        let iconImageView = UIImageView(image: UIImage(systemName: "calendar"))
         iconImageView.tintColor = .lightGray
+        iconImageView.contentMode = .scaleAspectFit
         iconImageView.frame = CGRect(x: 0, y: 0, width: 30, height: 20)
         rightView.addSubview(iconImageView)
         iconImageView.center = rightView.center
@@ -124,8 +126,9 @@ final class BuyProductViewController: UIViewController {
         textField.selectedLineHeight = 0
         
         let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 48))
-        let iconImageView = UIImageView(image: UIImage(systemName: "creditcard"))
+        let iconImageView = UIImageView(image: UIImage(systemName: "lock.fill"))
         iconImageView.tintColor = .lightGray
+        iconImageView.contentMode = .scaleAspectFit
         iconImageView.frame = CGRect(x: 0, y: 0, width: 30, height: 20)
         rightView.addSubview(iconImageView)
         iconImageView.center = rightView.center

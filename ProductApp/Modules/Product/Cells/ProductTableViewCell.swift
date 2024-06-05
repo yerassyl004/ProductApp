@@ -113,11 +113,15 @@ final class ProductCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Actions
     @objc private func addToFavoritesButtonTapped() {
-        if var productData {
-            productData.isAdded.toggle()
+        guard var productData = self.productData else { return }
+        if productData.isAdded {
+            productData.isAdded = false
+        } else {
+            productData.isAdded = true
         }
-        updateFavoriteButtonState()
-        saveChangesToCoreData()
+        self.productData = productData
+        updateFavoriteButtonState(isAdded: productData.isAdded)
+        saveChangesToCoreData(productsData: productData)
     }
     
     // MARK: - Configure
@@ -125,9 +129,13 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         productData = viewModel
         productTitleLabel.text = viewModel.productTitle
         productImageView.image = UIImage(named: viewModel.productImage)
-        productAmountLabel.text = viewModel.productAmount
+        productAmountLabel.text = "\(viewModel.productAmount)₸"
         
-        switch viewModel.isAdded {
+        updateFavoriteButtonState(isAdded: viewModel.isAdded)
+    }
+    
+    private func updateFavoriteButtonState(isAdded: Bool) {
+        switch isAdded {
         case true:
             addToFavoritesButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             addToFavoritesButton.tintColor = .red
@@ -137,23 +145,16 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private func updateFavoriteButtonState() {
-        guard let productData else { return }
-        let imageName = productData.isAdded ? "heart.fill" : "heart"
-        addToFavoritesButton.setImage(UIImage(systemName: imageName), for: .normal)
-    }
-    
-    private func saveChangesToCoreData() {
-        guard let productData else { return }
+    private func saveChangesToCoreData(productsData: Product.ViewModel) {
         let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         guard let context else { return }
         let fetchRequest: NSFetchRequest<ProductData> = ProductData.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "productTitle == %@", productData.productTitle)
+        fetchRequest.predicate = NSPredicate(format: "productTitle == %@", productsData.productTitle)
         
         do {
             let results = try context.fetch(fetchRequest)
             if let productData = results.first {
-                productData.isAdded = productData.isAdded
+                productData.isAdded = productsData.isAdded
                 try context.save()
             }
         } catch {

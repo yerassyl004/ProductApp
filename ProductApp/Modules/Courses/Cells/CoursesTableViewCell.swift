@@ -11,27 +11,21 @@ import SnapKit
 final class CoursesTableViewCell: UITableViewCell {
 
     // MARK: - UI
-    private lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.searchBarStyle = .minimal
-        return searchBar
-    }()
-    
-    private lazy var productImageView: UIImageView = {
+    private lazy var courseImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private lazy var addToFavoritesImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.tintColor = .white
-        imageView.layer.shadowOpacity = 10
-        return imageView
+    private lazy var courseTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .black
+        label.numberOfLines = 2
+        return label
     }()
     
-    private lazy var productTitleLabel: UILabel = {
+    private lazy var courseInstructorLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18)
         label.textColor = .black
@@ -39,9 +33,17 @@ final class CoursesTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var productAmountLabel: UILabel = {
+    private lazy var courseDurationLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.font = .systemFont(ofSize: 18)
+        label.textColor = .black
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    private lazy var courseAmountLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .medium)
         label.textColor = .black
         label.numberOfLines = 1
         return label
@@ -58,62 +60,54 @@ final class CoursesTableViewCell: UITableViewCell {
         super.init(coder: coder)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        DispatchQueue.main.async {
-            self.contentView.layer.cornerRadius = 16
-        }
-    }
-    
     // MARK: - Setup Views
     private func setupViews() {
-        contentView.backgroundColor = .systemGray6
-        [productTitleLabel, productImageView, productAmountLabel, addToFavoritesImageView].forEach {
+        contentView.backgroundColor = .systemBackground
+        [courseImageView, courseTitleLabel, courseInstructorLabel,
+         courseDurationLabel, courseAmountLabel].forEach {
             contentView.addSubview($0)
         }
     }
     
     // MARK: - Setup Constraints
     private func setupConstraints() {
-        productImageView.snp.makeConstraints { make in
+        courseImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
             make.leading.equalToSuperview().offset(16)
-            make.height.equalTo(120)
+            make.size.equalTo(80)
+            make.bottom.lessThanOrEqualToSuperview().offset(-16)
+        }
+        
+        courseTitleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(16)
+            make.leading.equalTo(courseImageView.snp.trailing).offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        courseInstructorLabel.snp.makeConstraints { make in
+            make.top.equalTo(courseTitleLabel.snp.bottom).offset(4)
+            make.leading.equalTo(courseImageView.snp.trailing).offset(16)
+        }
+        
+        courseDurationLabel.snp.makeConstraints { make in
+            make.top.equalTo(courseInstructorLabel.snp.bottom).offset(16)
+            make.leading.equalTo(courseImageView.snp.trailing).offset(16)
             make.bottom.equalToSuperview().offset(-16)
         }
         
-        addToFavoritesImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
+        courseAmountLabel.snp.makeConstraints { make in
+            make.top.equalTo(courseInstructorLabel.snp.bottom).offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(30)
-        }
-        
-        productTitleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
-            make.leading.equalTo(productImageView.snp.trailing).offset(16)
-            make.trailing.equalTo(addToFavoritesImageView.snp.leading).inset(8)
-        }
-        
-        productAmountLabel.snp.makeConstraints { make in
-            make.top.equalTo(productTitleLabel.snp.bottom).offset(16)
-            make.leading.equalTo(productImageView.snp.trailing).offset(16)
         }
     }
     
     // MARK: - Configure
-    public func configure(viewModel: Product.ViewModel) {
-        productTitleLabel.text = viewModel.productTitle
-        productImageView.image = UIImage(named: viewModel.productImage)
-        productAmountLabel.text = viewModel.productAmount
-        
-        switch viewModel.isAdded {
-        case true:
-            addToFavoritesImageView.image = UIImage(systemName: "heart.fill")
-            addToFavoritesImageView.tintColor = .red
-        case false:
-            addToFavoritesImageView.image = UIImage(systemName: "heart")
-            addToFavoritesImageView.tintColor = .white
-        }
+    public func configure(viewModel: Courses.ViewModel) {
+        courseTitleLabel.text = viewModel.title
+        courseImageView.image = UIImage(named: viewModel.image)
+        courseInstructorLabel.text = viewModel.instructor
+        courseDurationLabel.text = viewModel.duration
+        courseAmountLabel.text = "\(viewModel.amount)₸"
     }
 
 }
