@@ -43,7 +43,8 @@ final class DetailsViewController: UIViewController {
     private lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: productData.productImage)
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .white
         return imageView
     }()
     
@@ -75,8 +76,9 @@ final class DetailsViewController: UIViewController {
     private lazy var buyProductButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Купить", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
         button.backgroundColor = .systemGreen
-        button.tintColor = .black
+        button.tintColor = .white
         button.addTarget(self, action: #selector(buyProductButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -84,6 +86,7 @@ final class DetailsViewController: UIViewController {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigation()
         setupViews()
         setupConstraints()
     }
@@ -101,7 +104,7 @@ final class DetailsViewController: UIViewController {
     // MARK: - Setup Views
     private func setupViews() {
         DetailsConfigurator.shared.configure(viewController: self)
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray6
         [productImageView, productTitleLabel, productAmount, addToFavoritesButton, buyProductButton].forEach {
             view.addSubview($0)
         }
@@ -110,7 +113,7 @@ final class DetailsViewController: UIViewController {
     private func setupConstraints() {
         productImageView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16)
-            make.leading.trailing.equalToSuperview().inset(16)
+            make.leading.trailing.equalToSuperview()
             make.height.equalTo(400)
         }
         
@@ -138,16 +141,20 @@ final class DetailsViewController: UIViewController {
         }
     }
     
+    private func setupNavigation() {
+        navigationItem.title = "Детали"
+        navigationItem.largeTitleDisplayMode = .never
+    }
+    
     // MARK: - Actions
     @objc private func addToFavoritesButtonTapped() {
         productData.isAdded.toggle()
-        interactor?.addFavoriteProduct(productData: productData)
         updateFavoriteButtonState()
         saveChangesToCoreData()
     }
     
     @objc private func buyProductButtonTapped() {
-        router?.presentBuyProduct()
+        router?.presentBuyProduct(with: productData)
     }
     
     private func updateFavoriteButtonState() {
@@ -170,6 +177,12 @@ final class DetailsViewController: UIViewController {
         } catch {
             print("Failed to fetch or save context: \(error)")
         }
+    }
+}
+
+extension DetailsViewController: BuyProductDelegate {
+    func presentSuccessPage(success: Bool) {
+        router?.showSuccessScreen(success: success)
     }
 }
 

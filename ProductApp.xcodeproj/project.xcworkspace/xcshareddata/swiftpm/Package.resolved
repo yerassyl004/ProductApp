@@ -1,5 +1,5 @@
 {
-  "originHash" : "23e314c3f7a75cdff4bd2289d300b6ef157e20756b1b817bd74ed4ca3a16fba6",
+  "originHash" : "f271391a761dcab1f447bcf34606ab1ac08d6654113ddb409ffa8b778622d590",
   "pins" : [
     {
       "identity" : "input-mask-ios",
@@ -11,12 +11,39 @@
       }
     },
     {
+      "identity" : "iqkeyboardmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hackiftekhar/IQKeyboardManager.git",
+      "state" : {
+        "revision" : "19e111f9246b3407fe0c334dc78fa890c40d8c67",
+        "version" : "7.0.3"
+      }
+    },
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
+      "state" : {
+        "revision" : "769b88d83a42ca8d5572b020c96f47e3690b3796",
+        "version" : "4.4.3"
+      }
+    },
+    {
       "identity" : "panmodal",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/slackhq/PanModal.git",
       "state" : {
         "revision" : "b012aecb6b67a8e46369227f893c12544846613f",
         "version" : "1.2.7"
+      }
+    },
+    {
+      "identity" : "progresshud",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/relatedcode/ProgressHUD.git",
+      "state" : {
+        "revision" : "9364904a42cb25f58d026451140c4080a868e72e",
+        "version" : "14.1.3"
       }
     },
     {

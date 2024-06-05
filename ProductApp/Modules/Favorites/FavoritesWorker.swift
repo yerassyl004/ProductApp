@@ -27,9 +27,10 @@ class FavoritesWorker: FavoritesWorkerProtocol {
         completion(viewModelArray)
     }
     
-    func getFavoriteProducts() -> [ProductFavorites] {
-        let fetchRequest: NSFetchRequest<ProductFavorites> = ProductFavorites.fetchRequest()
-        
+    func getFavoriteProducts() -> [ProductData] {
+        let fetchRequest: NSFetchRequest<ProductData> = ProductData.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "isAdded == %@", NSNumber(value: true))
+            
         do {
             let favoriteProducts = try context.fetch(fetchRequest)
             return favoriteProducts
@@ -37,14 +38,5 @@ class FavoritesWorker: FavoritesWorkerProtocol {
             print("Failed to fetch favorite products with error: \(error)")
             return []
         }
-    }
-}
-
-extension Product.ViewModel {
-    init(productData: ProductFavorites) {
-        self.productTitle = productData.productTitle ?? ""
-        self.productImage = productData.productImageName ?? ""
-        self.productAmount = productData.productAmount ?? ""
-        self.isAdded = productData.isAdded
     }
 }

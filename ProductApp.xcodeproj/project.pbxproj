@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E41E6872C1025DE000265DC /* ProductInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E6862C1025DE000265DC /* ProductInfoView.swift */; };
+		0E41E68A2C10339D000265DC /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 0E41E6892C10339D000265DC /* ProgressHUD */; };
+		0E41E68D2C103850000265DC /* SuccessViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E68C2C103850000265DC /* SuccessViewViewController.swift */; };
+		0E41E6902C104230000265DC /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E41E68F2C104230000265DC /* success.json */; };
+		0E41E6922C104235000265DC /* failture.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E41E6912C104235000265DC /* failture.json */; };
+		0E41E6952C104296000265DC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0E41E6942C104296000265DC /* Lottie */; };
+		0E41E6982C104A85000265DC /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0E41E6972C104A85000265DC /* IQKeyboardManagerSwift */; };
+		0E41E69A2C104F44000265DC /* UIViewController+Extenion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41E6992C104F44000265DC /* UIViewController+Extenion.swift */; };
 		0E9434D32C0E3C9700EB31D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9434D22C0E3C9700EB31D6 /* AppDelegate.swift */; };
 		0E9434D52C0E3C9700EB31D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9434D42C0E3C9700EB31D6 /* SceneDelegate.swift */; };
 		0E9434DD2C0E3C9700EB31D6 /* ProductApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E9434DB2C0E3C9700EB31D6 /* ProductApp.xcdatamodeld */; };
@@ -63,6 +71,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E41E6862C1025DE000265DC /* ProductInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoView.swift; sourceTree = "<group>"; };
+		0E41E68C2C103850000265DC /* SuccessViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewViewController.swift; sourceTree = "<group>"; };
+		0E41E68F2C104230000265DC /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
+		0E41E6912C104235000265DC /* failture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = failture.json; sourceTree = "<group>"; };
+		0E41E6992C104F44000265DC /* UIViewController+Extenion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extenion.swift"; sourceTree = "<group>"; };
 		0E9434CF2C0E3C9700EB31D6 /* ProductApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E9434D22C0E3C9700EB31D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E9434D42C0E3C9700EB31D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,23 +134,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E41E6982C104A85000265DC /* IQKeyboardManagerSwift in Frameworks */,
+				0E41E68A2C10339D000265DC /* ProgressHUD in Frameworks */,
 				0EA4000F2C0F6E9E0092098B /* PanModal in Frameworks */,
 				0EA400152C0F910D0092098B /* InputMask in Frameworks */,
 				0E9435162C0E440C00EB31D6 /* SnapKit in Frameworks */,
 				0EA400122C0F8F330092098B /* SkyFloatingLabelTextField in Frameworks */,
+				0E41E6952C104296000265DC /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E41E6852C1025C7000265DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0E41E6862C1025DE000265DC /* ProductInfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0E41E68B2C1037CF000265DC /* SuucessOrder */ = {
+			isa = PBXGroup;
+			children = (
+				0E41E68C2C103850000265DC /* SuccessViewViewController.swift */,
+			);
+			path = SuucessOrder;
+			sourceTree = "<group>";
+		};
+		0E41E68E2C104224000265DC /* LottieAnomation */ = {
+			isa = PBXGroup;
+			children = (
+				0E41E6912C104235000265DC /* failture.json */,
+				0E41E68F2C104230000265DC /* success.json */,
+			);
+			path = LottieAnomation;
+			sourceTree = "<group>";
+		};
 		0E9434C62C0E3C9700EB31D6 = {
 			isa = PBXGroup;
 			children = (
-				0EA400052C0F49950092098B /* ProductFavorites+CoreDataClass.swift */,
-				0EA400062C0F49950092098B /* ProductFavorites+CoreDataProperties.swift */,
-				0EA4FFF32C0F33C30092098B /* ProductData+CoreDataClass.swift */,
-				0EA4FFF42C0F33C30092098B /* ProductData+CoreDataProperties.swift */,
 				0E9434D12C0E3C9700EB31D6 /* ProductApp */,
 				0E9434D02C0E3C9700EB31D6 /* Products */,
 			);
@@ -170,6 +207,7 @@
 		0E9434E92C0E3D7B00EB31D6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0E41E68B2C1037CF000265DC /* SuucessOrder */,
 				0EA4000A2C0F6E530092098B /* BuyProduct */,
 				0EBB67F42C0F00D900653A34 /* ProductDetails */,
 				0E9434F22C0E3F7800EB31D6 /* Courses */,
@@ -247,6 +285,11 @@
 		0E9435192C0E46F200EB31D6 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0E41E68E2C104224000265DC /* LottieAnomation */,
+				0EA400052C0F49950092098B /* ProductFavorites+CoreDataClass.swift */,
+				0EA400062C0F49950092098B /* ProductFavorites+CoreDataProperties.swift */,
+				0EA4FFF32C0F33C30092098B /* ProductData+CoreDataClass.swift */,
+				0EA4FFF42C0F33C30092098B /* ProductData+CoreDataProperties.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -267,6 +310,7 @@
 				0EBB67F02C0EFD6F00653A34 /* UICollectionView+Register.swift */,
 				0EBB67F22C0EFD8000653A34 /* UICollectionView+Reusable.swift */,
 				0EA400162C0F95BC0092098B /* CustomSkyFloatingLabelTextField.swift */,
+				0E41E6992C104F44000265DC /* UIViewController+Extenion.swift */,
 			);
 			path = "UIKit+Extensions";
 			sourceTree = "<group>";
@@ -289,6 +333,7 @@
 		0EA4000A2C0F6E530092098B /* BuyProduct */ = {
 			isa = PBXGroup;
 			children = (
+				0E41E6852C1025C7000265DC /* Views */,
 				0EA4000B2C0F6E880092098B /* BuyProductViewController.swift */,
 			);
 			path = BuyProduct;
@@ -329,6 +374,9 @@
 				0EA4000E2C0F6E9E0092098B /* PanModal */,
 				0EA400112C0F8F330092098B /* SkyFloatingLabelTextField */,
 				0EA400142C0F910D0092098B /* InputMask */,
+				0E41E6892C10339D000265DC /* ProgressHUD */,
+				0E41E6942C104296000265DC /* Lottie */,
+				0E41E6972C104A85000265DC /* IQKeyboardManagerSwift */,
 			);
 			productName = ProductApp;
 			productReference = 0E9434CF2C0E3C9700EB31D6 /* ProductApp.app */;
@@ -363,6 +411,9 @@
 				0EA4000D2C0F6E9E0092098B /* XCRemoteSwiftPackageReference "PanModal" */,
 				0EA400102C0F8F330092098B /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */,
 				0EA400132C0F910D0092098B /* XCRemoteSwiftPackageReference "input-mask-ios" */,
+				0E41E6882C10339D000265DC /* XCRemoteSwiftPackageReference "ProgressHUD" */,
+				0E41E6932C104296000265DC /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				0E41E6962C104A85000265DC /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 0E9434D02C0E3C9700EB31D6 /* Products */;
 			projectDirPath = "";
@@ -379,7 +430,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E9434DF2C0E3C9900EB31D6 /* Assets.xcassets in Resources */,
+				0E41E6922C104235000265DC /* failture.json in Resources */,
 				0E9434E22C0E3C9900EB31D6 /* Base in Resources */,
+				0E41E6902C104230000265DC /* success.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +454,7 @@
 				0EA400042C0F44360092098B /* FavoritesConfigurator.swift in Sources */,
 				0E9434FB2C0E3FC700EB31D6 /* ProductRouter.swift in Sources */,
 				0EBB67FC2C0F00F000653A34 /* DetailsPresenter.swift in Sources */,
+				0E41E68D2C103850000265DC /* SuccessViewViewController.swift in Sources */,
 				0EBB67FD2C0F00F000653A34 /* DetailsWorker.swift in Sources */,
 				0EBB67FE2C0F00F000653A34 /* DetailsRouter.swift in Sources */,
 				0EBB67FF2C0F00F000653A34 /* DetailsModels.swift in Sources */,
@@ -419,6 +473,7 @@
 				0EA4000C2C0F6E880092098B /* BuyProductViewController.swift in Sources */,
 				0E9434D52C0E3C9700EB31D6 /* SceneDelegate.swift in Sources */,
 				0E9435182C0E46B800EB31D6 /* Product+UITableView.swift in Sources */,
+				0E41E69A2C104F44000265DC /* UIViewController+Extenion.swift in Sources */,
 				0E94351D2C0E479C00EB31D6 /* UITableView+Register.swift in Sources */,
 				0E9435062C0E3FF400EB31D6 /* CoursesPresenter.swift in Sources */,
 				0E9435072C0E3FF400EB31D6 /* CoursesWorker.swift in Sources */,
@@ -430,6 +485,7 @@
 				0E9435092C0E3FF400EB31D6 /* CoursesModels.swift in Sources */,
 				0E9435102C0E43D000EB31D6 /* CoursesTableViewCell.swift in Sources */,
 				0EA4FFF52C0F33C30092098B /* ProductData+CoreDataClass.swift in Sources */,
+				0E41E6872C1025DE000265DC /* ProductInfoView.swift in Sources */,
 				0EA4FFF62C0F33C30092098B /* ProductData+CoreDataProperties.swift in Sources */,
 				0EA400192C0F9F9D0092098B /* Favorites+TableView.swift in Sources */,
 				0E94350A2C0E3FF400EB31D6 /* CoursesViewController.swift in Sources */,
@@ -651,6 +707,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0E41E6882C10339D000265DC /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.3;
+			};
+		};
+		0E41E6932C104296000265DC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
+		0E41E6962C104A85000265DC /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.3;
+			};
+		};
 		0E9435142C0E440C00EB31D6 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Snapkit/SnapKit.git";
@@ -686,6 +766,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0E41E6892C10339D000265DC /* ProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E41E6882C10339D000265DC /* XCRemoteSwiftPackageReference "ProgressHUD" */;
+			productName = ProgressHUD;
+		};
+		0E41E6942C104296000265DC /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E41E6932C104296000265DC /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		0E41E6972C104A85000265DC /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E41E6962C104A85000265DC /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		0E9435152C0E440C00EB31D6 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0E9435142C0E440C00EB31D6 /* XCRemoteSwiftPackageReference "SnapKit" */;

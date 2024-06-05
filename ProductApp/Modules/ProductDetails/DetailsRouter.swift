@@ -13,8 +13,9 @@
 import UIKit
 import PanModal
 
-@objc protocol DetailsRoutingLogic {
-    func presentBuyProduct()
+protocol DetailsRoutingLogic {
+    func presentBuyProduct(with productData: Product.ViewModel)
+    func showSuccessScreen(success: Bool)
 }
 
 protocol DetailsDataPassing {
@@ -25,9 +26,14 @@ final class DetailsRouter: NSObject, DetailsRoutingLogic, DetailsDataPassing {
     weak var viewController: DetailsViewController?
     var dataStore: DetailsDataStore?
     
-    func presentBuyProduct() {
-        let vc = BuyProductViewController()
+    func presentBuyProduct(with productData: Product.ViewModel) {
+        let vc = BuyProductViewController(productData: productData)
+        vc.delegate = viewController
         viewController?.presentPanModal(vc)
     }
     
+    func showSuccessScreen(success: Bool) {
+        let vc = SuccessViewViewController(success: success)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
 }
