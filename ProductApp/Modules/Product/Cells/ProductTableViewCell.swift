@@ -22,7 +22,8 @@ final class ProductCollectionViewCell: UICollectionViewCell {
     
     private lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .white
         return imageView
     }()
     
@@ -64,9 +65,9 @@ final class ProductCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        DispatchQueue.main.async {
-            self.contentView.layer.cornerRadius = 16
-        }
+        contentView.layer.cornerRadius = 16
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     override func prepareForReuse() {
@@ -88,9 +89,9 @@ final class ProductCollectionViewCell: UICollectionViewCell {
     // MARK: - Setup Constraints
     private func setupConstraints() {
         productImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(contentView.bounds.width - 16)
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(contentView.bounds.width)
         }
         
         addToFavoritesButton.snp.makeConstraints { make in
