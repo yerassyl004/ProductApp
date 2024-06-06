@@ -23,23 +23,20 @@ class ProductWorker: ProductWorkerProtocol {
     
     func fetchProductData(completion: @escaping ([Product.ViewModel]) -> Void) {
         do {
-            let productDataArray = try context.fetch(ProductData.fetchRequest()) as? [ProductData]
-            
-            guard let productDataArray else {
+            if let productDataArray = try context.fetch(ProductData.fetchRequest()) as? [ProductData], !productDataArray.isEmpty {
+                let viewModelArray = productDataArray.map { Product.ViewModel(productData: $0) }
+                completion(viewModelArray)
+            } else {
                 print("Zero items, loading default data")
-                return
-            }
-            if productDataArray.isEmpty {
                 let defaultData = getDefaultData()
                 saveDefaultDataToCoreData(defaultData)
                 completion(defaultData)
             }
-            let viewModelArray = productDataArray.map { Product.ViewModel(productData: $0) }
-            completion(viewModelArray)
-            
         } catch let error {
             print("Failed to fetch items with error: \(error)")
-            completion(getDefaultData())
+            let defaultData = getDefaultData()
+            saveDefaultDataToCoreData(defaultData)
+            completion(defaultData)
         }
     }
     
